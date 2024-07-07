@@ -1,0 +1,23 @@
+{
+  "name": "fcm-demo",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "generate-pwa-assets": "pwa-assets-generator"
+  },
+  "dependencies": {
+    "firebase": "^10.12.3",
+    "vue": "^3.4.29"
+  },
+  "devDependencies": {
+    "@vite-pwa/assets-generator": "^0.2.4",
+    "@vitejs/plugin-vue": "^5.0.5",
+    "vite": "^5.3.1",
+    "vite-plugin-mkcert": "^1.17.5",
+    "vite-plugin-pwa": "^0.20.0"
+  }
+}
