@@ -1,6 +1,7 @@
-import {getCurrentMessaging} from "./config/firebase.js";
+import {firebaseConfig} from "./config/firebase.js";
 import {onMessage} from "firebase/messaging";
-import {onBackgroundMessage} from "firebase/messaging/sw";
+import {getMessaging, onBackgroundMessage} from "firebase/messaging/sw";
+import {initializeApp} from "firebase/app";
 
 self.addEventListener('install', (e) => {
     console.log("installed SW! and skipWaiting...", e);
@@ -20,7 +21,8 @@ self.addEventListener('push', (e) => {
     showNotification(payload, e);
 })
 
-const messaging = getCurrentMessaging();
+const firebaseApp = initializeApp(firebaseConfig);
+const messaging = getMessaging(firebaseApp);
 if (messaging) {
     onMessage(messaging, (payload) => {
         // NOTE: The onMessage in the Firebase SDK is not delivered within the service worker.
